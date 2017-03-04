@@ -1,0 +1,158 @@
+% Unofficial LaTeX template for the "System Design Document",
+% part of the project of the course Essentials of Applied Software Engineering
+% of the Technical University of Munich, on edge.edx.org.
+% It tries to imitate the official template for Microsoft Word.
+%
+% The images are property of the Technical University of Munich.
+%
+% The LaTeX code can be found on https://github.com/MakisH/EASE_templates.
+% LaTeX document created by MakisH.
+
+\documentclass[a4paper,12pt]{article}
+
+% Process graphics.
+\usepackage{graphicx}
+% Create clickable links in the pdf
+\usepackage[bookmarks=true,pdfborder={0 0 0}]{hyperref}
+% Format links
+\usepackage{url}
+% Keep floats in their sections
+\usepackage[section]{placeins}
+% List code in the lstlisting environment
+\usepackage{listings}
+% Options for the lstlisting environment
+\lstset{numbers=left, showspaces=false, showstringspaces=false, frame=single}
+% Format tables with some special features (e.g. auto-width columns)
+% \usepackage{tabulary}
+
+%%%%% LEGACY LaTeX (pdflatex) - USE XeLaTeX IF AVAILABLE (SEE BELOW) %%%%%%%%%%
+  % Set the font to sans-serif
+  \renewcommand{\familydefault}{\sfdefault}
+%%%%% ENABLE IF XeLaTeX or LuaLaTeX IS AVAILABLE FOR BEST RESULTS %%%%%%%%%%%%%
+  % Enables doing changes in the font.
+  % \usepackage{fontspec}
+  % Set the font. [Requires fontspec] If you don't have CMU Bright you can use another one, e.g. Arial.
+  % \setmainfont[Mapping=tex-text]{CMU Bright}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Enables setting cutom colors
+\usepackage{xcolor}
+\usepackage{sectsty}
+\definecolor{blue1}{RGB}{52, 90, 138}
+\definecolor{blue2}{RGB}{79, 129, 189}
+\sectionfont{\color{blue1}}
+\subsectionfont{\color{blue2}}
+\subsubsectionfont{\color{blue2}}
+% Set the color of the Table of Contents header to black
+\renewcommand{\contentsname}{\textcolor{black}{Table of Contents}}
+% Set the title formatting
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  {\Huge\textbf{\@title}}
+\end{flushleft}\egroup
+}
+\makeatother
+% Enable adding a wallpaper on the page (logos)
+\usepackage{wallpaper}
+% Typeset keystrokes
+% \usepackage{keystroke}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+ % Set and insert the title.
+ \title{System Design Document}
+ \maketitle
+ % Insert the TUM and Chair logos.
+ \LLCornerWallPaper{0.3}{cosmetics/Lehrstuhl.png}
+ \LRCornerWallPaper{0.3}{cosmetics/tum.png}
+
+ \section*{\color{black}Purpose}
+
+ The system design is documented in the System Design Document (SDD). It describes additional design goals set by the software architect, the subsystem decomposition (with UML class diagrams), hardware/software mapping (with UML deployment diagrams), data management, access control, control flow mechanisms, and boundary conditions.  The SDD serves as the binding reference document when architecture-level decisions need to be revisited.
+
+ % Set the Table of Contents depth and inert the ToC.
+ \setcounter{tocdepth}{2}
+ \tableofcontents
+
+ \section{Introduction}
+ % Content: The purpose of the Introduction is to provide a brief overview of the software architecture. It also provides references to other documents.
+
+ \subsection{Overview}
+
+ \subsection{Definitions, acronyms, and abbreviations}
+ % NOTE: You may find a description list snippet at the end of this document.
+
+ \subsection{References}
+
+
+
+ \section{Design Goals}
+ % Content: This section describes the design goals and their prioritization (e.g. usability over extensibility). These are additional nonfunctional requirements that are of interest to the developers. Any trade-offs between design goals  (e.g., usability vs. functionality, build vs. buy, memory space vs. response time), and the rationale behind the specific solution should be described in this section. Also the rationale of all other decisions must be consistent with described design goals.
+ % NOTE: You may find a description list snippet at the end of this document.
+
+
+
+ \section{Subsystem decomposition}
+ % Content: This section describes the decomposition of the system into subsystems and the services provided by each subsystem.
+
+
+
+ \section{Hardware/software mapping}
+ % Content: This section describes how the subsystems are mapped onto existing hardware and software components. A UML deployment diagram accompanies the description. The existing components are often off-the-shelf components. If the components are distributed on different nodes, the network infrastructure and the protocols are also described.
+ % NOTE: You may find a figure snippet at the end of this document.
+
+ \section{Persistent data management} % Optional
+ % Content: This section describes how the entity objects are mapped to persistent storage. It contains a rationale of the selected storage scheme, file system or database, a description of the selected database and database administration issues.
+
+
+
+ \section{Access control and security} % Optional
+ % Content: This section describes the access control and security issues based on the nonfunctional requirements in the requirements analysis document. It also describes the implementation of the access matrix based on capabilities or access control lists, the selection of authentication mechanisms and the use of encryption algorithms.
+
+
+ \section{Global software control} % Optional
+ % Content: This section describes the control flow of the system, in particular, whether a monolithic, event-driven control flow or concurrent processes have been selected, how requests are initiated and specific synchronization issues.
+
+
+
+ \section{Boundary conditions} % Optional
+ % Content: This section describes the use cases how to start up the separate components of the system, how to shut them down, and what to do if a component or the system fails.
+
+
+ \end{document}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Useful snippets
+
+ % Description list
+ % \begin{description}
+ %   \item[myTermA] myTermA description.
+ %   \item[myTermB] myTermB description.
+ % \end{description}
+
+% Scenarios table (include tabulary package)
+ % \begin{table}
+ %   \centering
+ %   \begin{tabulary}{\linewidth}{|l|L|}
+ %     \hline
+ %     Scenario name & My scenario name\\
+ %     \hline
+ %     Participating actors & Initiated by Alice, student\\
+ %     \hline
+ %     Flow of events & 1. Lorem.\\
+ %     & 2. Ipsum.\\
+ %     & 3. Dolor.\\
+ %     \hline
+ %   \end{tabulary}
+ %   \caption{Scenario 1.}
+ %   \label{tab:scenario1}
+ % \end{table}
+
+% Figures
+ % \begin{figure}
+ %     \centering
+ %     \includegraphics[width=\textwidth]{figures/myFigure}
+ %     \caption{My caption.}
+ %     \label{fig:myFigure}
+ % \end{figure}
